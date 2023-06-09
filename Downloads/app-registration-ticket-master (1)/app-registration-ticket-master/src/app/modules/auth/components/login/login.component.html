@@ -1,0 +1,17 @@
+<div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+        <header>Login</header>
+        <form action="#">
+            <input type="text" placeholder="Ingresa tu Correo" name="user" [(ngModel)]="user">
+            <input type="password" placeholder="Ingresa tu Contraseña" name="password" [(ngModel)]="password">
+            <a routerLink="/auth/recover-user" routerLinkActive="active">Olvidaste tu Contraseña?</a>
+            <input type="button" class="button" value="Iniciar sesion" (click)="login()">
+        </form>
+        <div class="signup">
+            <span class="signup">No tienes una cuenta?
+                <label for="check" routerLink="/auth/register-user" routerLinkActive="active">Registro</label>
+            </span>
+        </div>
+    </div>
+</div>

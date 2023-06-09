@@ -1,0 +1,19 @@
+<div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+        <header>SignUp</header>
+        <form action="#">
+            <input type="text" placeholder="Ingresa tu nombre de usuario" name="username" [(ngModel)]="username">
+            <input type="email" placeholder="Ingresa tu Correo" name="email" [(ngModel)]="email">
+            <input type="password" placeholder="Ingresa tu Contraseña" name="password1" [(ngModel)]="pass1">
+            <input type="password" placeholder="Confirmar la Contraseña" name="password2" [(ngModel)]="pass2">
+
+            <input type="button" class="button" value="Registrar usuario" (click)="registerUser()">
+        </form>
+        <div class="signup">
+            <span class="signup">Posees una cuenta?
+                <label for="check" routerLink="/auth/login" routerLinkActive="active">Inicia sesion</label>
+            </span>
+        </div>
+    </div>
+</div>
