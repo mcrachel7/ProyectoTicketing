@@ -39,6 +39,15 @@ export class MainComponent implements OnInit{
   adminTickets(){
     this.router.navigate(['/list-tickets']);
   }
+  home(){
+    this.router.navigate(['home']);
+  }
+  logOut(){
+    localStorage.removeItem('ACCESS_TOKEN');
+    localStorage.removeItem('ID_USER');
+    localStorage.removeItem('ROLE_USER');
+    this.router.navigate(['auth']);
+  }
 
 
 

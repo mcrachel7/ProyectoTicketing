@@ -6,10 +6,11 @@
         <span class="nav-icon"></span>
     </label>
     <ul class="menu">
-        <li><a href="#">Inicio</a></li>
+        <li><a (click)="home()">Inicio</a></li>
         <li><a (click)="adminTickets()">Tickets</a></li>
         <li><a href="#">Servicios</a></li>
         <li><a href="#">Reportes</a></li>
+        <li><a (click)="logOut()">LogOut</a></li>
     </ul>
 </header>
 
@@ -25,10 +26,11 @@
         <span class="nav-icon"></span>
     </label>
     <ul class="menu">
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Tickets</a></li>
+        <li><a (click)="home()">Inicio</a></li>
+        <li><a (click)="viewHistory()">Tickets</a></li>
         <li><a href="#">Servicios</a></li>
         <li><a href="#">Reportes</a></li>
+        <li><a (click)="logOut()">LogOut</a></li>
     </ul>
 </header>
 
