@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Ticket } from '../models/ticket';
+import { ITicket } from 'src/app/core/interfaces/Ticket/iticket';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs';
 
@@ -15,7 +15,7 @@ export class TicketService {
 
   constructor(private httpClient:HttpClient) { }
 
-  createTicket(objTicket:Ticket, token:string): Observable<any>{
+  createTicket(objTicket:ITicket, token:string): Observable<any>{
 
     this.header = this.header
     .set('Authorization', token)
@@ -36,7 +36,6 @@ export class TicketService {
 
 loadTickets():Observable<any>{
   return this.httpClient.get(this.AUTH_SERVER+"/list-tickets")
-
 }
 
 

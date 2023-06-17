@@ -33,4 +33,14 @@ export class MainContentService {
     return this.role;
   }
 
+  public logOut(){
+    this.idUser = "";
+    this.role = "";
+    this.token = "";
+
+    localStorage.removeItem('ACCESS_TOKEN');
+    localStorage.removeItem('ID_USER');
+    localStorage.removeItem('ROLE_USER');
+  }
+
 }

@@ -19,15 +19,20 @@ export class MainComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.loadUserData();
+    this.initDataUser();
+  }
+
+  async initDataUser(){
+    await this.loadUserData();
+    await this.validateLoginData();
   }
 
   async loadUserData(){
-    this.idUser = await this.mainContentService.getIdUser();
-    this.role = await this.mainContentService.getRoleUser();
-    this.token = await this.mainContentService.getToken();
-    console.log(this.role);
-
+    if(this.idUser == "" || this.role == "" || this.token == ""){
+      this.idUser = await this.mainContentService.getIdUser();
+      this.role = await this.mainContentService.getRoleUser();
+      this.token = await this.mainContentService.getToken();
+    }
   }
 
   createTicket(){
@@ -43,10 +48,17 @@ export class MainComponent implements OnInit{
     this.router.navigate(['home']);
   }
   logOut(){
-    localStorage.removeItem('ACCESS_TOKEN');
-    localStorage.removeItem('ID_USER');
-    localStorage.removeItem('ROLE_USER');
+    this.idUser = "";
+    this.role = "";
+    this.token = "";
+    this.mainContentService.logOut();
     this.router.navigate(['auth']);
+  }
+
+  validateLoginData(){
+    if(this.idUser == "" || this.role == "" || this.token == ""){
+      this.router.navigate(['auth']);
+    }
   }
 
 
