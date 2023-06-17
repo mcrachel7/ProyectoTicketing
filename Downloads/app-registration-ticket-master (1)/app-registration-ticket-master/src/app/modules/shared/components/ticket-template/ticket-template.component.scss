@@ -1,0 +1,73 @@
+$primary-color: #2ebd94;
+$secondary-color: #28bbb8;
+$tertiary-color: #89ddb3;
+$success-color: #2ebd94;
+$failure-color: #E74C3C;
+$in-management-color: #F5B041;
+$inactive-color: #99A3A4;
+
+*{
+    font-size: medium;
+}
+
+.container-ticket{
+    max-width: 75vh;
+    border: solid dimgray 0.3vh;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;    
+
+    .section-date{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-right: dotted 0.5vh dimgray;
+        
+        h3, h5{
+            padding: 0vh 4vh;
+        }
+    }
+
+    .section-content{
+        width: 60vh;
+        padding-left: 2vh;
+        padding-top: 2vh;
+        .row{
+            .col{
+                display: flex;
+                flex-direction: column;                        
+            }
+        }
+        .action-buttons{
+            bottom: 3vh;
+            position: absolute;
+        }
+        .description-data, .puntual-data{
+            margin-left: 2vh;
+        }
+        .action-buttons{
+            button{
+                margin-top: 1vh;
+                width: 18vh;
+            }
+        }   
+    }
+}
+
+.text-success{
+    color: $success-color;
+}
+
+.text-failure{
+    color: $failure-color;
+}
+
+.text-in-management{
+    color: $in-management-color;
+}
+
+.text-inactive{
+    color: $inactive-color;
+}

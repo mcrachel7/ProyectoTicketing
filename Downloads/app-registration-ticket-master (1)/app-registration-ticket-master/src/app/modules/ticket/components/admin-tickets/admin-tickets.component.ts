@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketService } from '../../services/ticket.service';
-import { Ticket } from '../../models/ticket';
+import { ITicket } from 'src/app/core/interfaces/Ticket/iticket';
 
 @Component({
   selector: 'app-admin-tickets',
@@ -9,7 +9,7 @@ import { Ticket } from '../../models/ticket';
 })
 export class AdminTicketsComponent implements OnInit{
 
-  LISTTICKETS: Ticket[] = [];
+  LISTTICKETS: ITicket[] = [];
   public flagLoadTasks:boolean = false;
   constructor(private _ticketService: TicketService){}
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Ticket } from '../../models/ticket';
+import { ITicket } from 'src/app/core/interfaces/Ticket/iticket';
 import { ActivatedRoute,Router } from '@angular/router';
 
 import { TicketService } from '../../services/ticket.service';
@@ -42,13 +42,13 @@ private token!:string;
 
   addTicket(){
     this.token = this.loginService.getToken();
-    const TICKET: Ticket = {
-      idUser : this.loginService.getIdUser(),
+    const TICKET: ITicket = {
+      _id : this.loginService.getIdUser(),
       title: this.ticketForm.get('title')?.value,
       description: this.ticketForm.get('description')?.value,
       status: this.ticketForm.get('status')?.value,
       type: this.ticketForm.get('type')?.value,
-      FullName: this.ticketForm.get('FullName')?.value,
+      fullName: this.ticketForm.get('FullName')?.value,
       department: this.ticketForm.get('department')?.value,
       createdAt: this.getDate()
     }

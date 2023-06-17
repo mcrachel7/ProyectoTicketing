@@ -1,49 +1,49 @@
-<div  *ngIf="role=='administrador'">
-  <header class="header">
-    <a class="logo" href="#">Muni Tickets</a>
-    <input type="checkbox" id="menu-btn" class="menu-btn">
-    <label class="menu-icon" for="menu-btn">
-        <span class="nav-icon"></span>
-    </label>
-    <ul class="menu">
-        <li><a (click)="home()">Inicio</a></li>
-        <li><a (click)="adminTickets()">Tickets</a></li>
-        <li><a href="#">Servicios</a></li>
-        <li><a href="#">Reportes</a></li>
-        <li><a (click)="logOut()">LogOut</a></li>
-    </ul>
-</header>
-
-
+<div *ngIf="role=='administrador'">
+    <header class="header">
+        <a class="logo" href="#">Muni Tickets</a>
+        <input type="checkbox" id="menu-btn" class="menu-btn">
+        <label class="menu-icon" for="menu-btn">
+            <span class="nav-icon"></span>
+        </label>
+        <ul class="menu">
+            <li><a (click)="home()">Inicio</a></li>
+            <li><a (click)="adminTickets()">Tickets</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a (click)="logOut()">LogOut</a></li>
+        </ul>
+    </header>
 </div>
 
 <div *ngIf="role=='usuario'">
 
-  <header class="header">
-    <a class="logo" href="#">Muni Tickets</a>
-    <input type="checkbox" id="menu-btn" class="menu-btn">
-    <label class="menu-icon" for="menu-btn">
-        <span class="nav-icon"></span>
-    </label>
-    <ul class="menu">
-        <li><a (click)="home()">Inicio</a></li>
-        <li><a (click)="viewHistory()">Tickets</a></li>
-        <li><a href="#">Servicios</a></li>
-        <li><a href="#">Reportes</a></li>
-        <li><a (click)="logOut()">LogOut</a></li>
-    </ul>
-</header>
+    <header class="header">
+        <a class="logo" href="#">Muni Tickets</a>
+        <input type="checkbox" id="menu-btn" class="menu-btn">
+        <label class="menu-icon" for="menu-btn">
+            <span class="nav-icon"></span>
+        </label>
+        <ul class="menu">
+            <li><a (click)="home()">Inicio</a></li>
+            <li><a (click)="viewHistory()">Tickets</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a (click)="logOut()">LogOut</a></li>
+        </ul>
+    </header>
 
-<div class="content-center">
-    <a (click)="createTicket()"class="button1" style="background-color:#2ebd94">
-       <span style="font-size:3em; font-family:'Comic Sans MS'; border-right:1px solid rgba(255,255,255,0.5); padding-right:0.3em; margin-right:0.3em; vertical-align:middle">T</span>
-       Crear un Nuevo Ticket
-      </a>
-      <a (click)="viewHistory()" class="button1" style="background-color:#2ebd94">
-         <span style="font-size:3em; font-family:'Comic Sans MS'; border-right:1px solid rgba(255,255,255,0.5); padding-right:0.3em; margin-right:0.3em; vertical-align:middle">H</span>
-         Ver Historial de Tickets
+    <div class="content-center">
+        <a (click)="createTicket()" class="button1" style="background-color:#2ebd94">
+             <span
+                style="font-size:3em; font-family:'Comic Sans MS'; border-right:1px solid rgba(255,255,255,0.5); padding-right:0.3em; margin-right:0.3em; vertical-align:middle">T</span>
+             Crear un Nuevo Ticket
         </a>
-</div>
+        <a (click)="viewHistory()" class="button1" style="background-color:#2ebd94">
+             <span
+                style="font-size:3em; font-family:'Comic Sans MS'; border-right:1px solid rgba(255,255,255,0.5); padding-right:0.3em; margin-right:0.3em; vertical-align:middle">H</span>
+             Ver Historial de Tickets
+        </a>
+    </div>
 
 </div>
 
