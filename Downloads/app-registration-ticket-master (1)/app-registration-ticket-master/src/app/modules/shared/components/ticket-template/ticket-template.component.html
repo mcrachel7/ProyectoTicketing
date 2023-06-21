@@ -16,7 +16,10 @@
                         <p>{{ticket!.description}}</p>
                     </div>
                     <div class="puntual-data">
-                        <h5>Status: <label [ngClass]="getColorClass()">{{ticket!.status}}</label></h5>
+                        <h5>Status: </h5>
+                        <select id="select-status" name="select-status" [ngClass]="getColorClass()" [(ngModel)]="newStatusTicket" [disabled]="!flagSelectStatus" (change)="changeStatusTicket()">
+                            <option *ngFor="let opcion of selectStatusOptions" [value]="opcion">{{opcion}}</option>
+                        </select>
                         <p>{{ticket!.createdAt}}</p>
                     </div>
 
@@ -24,8 +27,8 @@
             </div>
             <div class="col-lg-6 col-xs-6">
                 <div class="action-buttons">
-                    <button type="button" class="btn btn-warning btn-sm">Editar estado</button>
-                    <button type="button" class="btn btn-danger btn-sm">Eliminar ticket</button>
+                    <button type="button" class="btn btn-warning btn-sm" (click)="enableStatusTicket()">Editar estado</button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteTicket()">Eliminar ticket</button>
                 </div>
             </div>
         </div>

@@ -26,45 +26,21 @@
     </ul>
 </header>
 
-  <!-- <div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-            <div class="card" style="margin-top: 2cm;">
-                <div *ngIf="flagLoadTasks==true" class="card-body text-center">
-                    <span class="titulo" style="font-size: large; color: #2ebd94;">LISTADO DE TICKETS</span>
-                    <table *ngIf="LISTTICKETS.length > 0" class="table table-striped mt-3">
-                        <thead>
-                          <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Department</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Type</th>
-                            <th scope="col"></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let ticket of LISTTICKETS">
-                            <td>{{ ticket.FullName }}</td>
-                            <td>{{ ticket.department }}</td>
-                            <td>{{ ticket.title }}</td>
-                            <td>{{ ticket.description }}</td>
-                            <td>{{ ticket.status }}</td>
-                            <td>{{ ticket.type  }}</td>
-                            <td>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                <div>
-                  <h5 style="text-align: start; margin-top: 10px;" *ngIf="LISTTICKETS.length == 0">No hay tickets para mostrar</h5>
-                </div>
-                </div>
-            </div>
-        </div>
+<div class="container-tickets" *ngIf="listTicket != undefined">
+
+  <div class="row">
+    <div class="col" *ngFor="let tic of listTicket">
+      <app-ticket-template [ticket]="tic">          
+      </app-ticket-template>
     </div>
-  </div> -->
+  </div>
+
+</div>
+
+<div>
+  <h5 style="position: absolute; top: 50%; left: 40%;" *ngIf="listTicket == undefined">No hay tickets para mostrar</h5>
+</div>
+
 
 </body>
 </html>

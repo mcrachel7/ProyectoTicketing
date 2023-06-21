@@ -11,12 +11,13 @@ $inactive-color: #99A3A4;
 }
 
 .container-ticket{
-    max-width: 75vh;
+    max-width: 80vh;
     border: solid dimgray 0.3vh;
     height: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;    
+    margin: 1.5vh 0vh;
 
     .section-date{
         display: flex;
@@ -31,7 +32,7 @@ $inactive-color: #99A3A4;
     }
 
     .section-content{
-        width: 60vh;
+        width: 75vh;
         padding-left: 2vh;
         padding-top: 2vh;
         .row{

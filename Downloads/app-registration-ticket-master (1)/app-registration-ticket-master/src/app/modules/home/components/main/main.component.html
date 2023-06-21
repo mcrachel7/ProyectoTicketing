@@ -15,6 +15,59 @@
     </header>
 </div>
 
+<!-- SECCION DASHBOARD ADMINISTRADOR -->
+<section class="dashboard-content" *ngIf="role=='administrador'">
+    
+    <div class="ticket-details">
+        <div class="ticket-quantity-details">
+            <div class="number-percentil-data case-1">
+                <h5>{{dataDashboard?.quantityCreatedTickets}}</h5>    
+            </div>
+            <div class="container-details">
+                <p>En la aplicación se han creado esta cantidad de tickets.</p>
+            </div>
+        </div>
+        <div class="ticket-user-details">
+            <div class="number-percentil-data case-2">
+                <h5>{{dataDashboard?.percentilTicketsCreatedByUsers}} %</h5>
+            </div>
+            <div class="container-details">
+                <p>Este porcentaje de usuarios han creado tickets.</p>
+            </div>
+        </div>
+        <div class="closed-ticket-user-details">
+            <div class="number-percentil-data case-3">
+                <h5>{{dataDashboard?.percentilClosedTickets}} %</h5>
+            </div>
+            <div class="container-details">
+                <p>Este porcentaje de tickets han sido cerrados por los usuarios.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ticket-operations">
+        <div class="container-buttons">
+            <div class="view-tickets" (click)="redirectTicketsView()">
+                <label>VER TICKETS</label>
+            </div>
+            <div class="generate-report" (click)="redirectViewGenerateReport()">
+                <label>GENERAR UN REPORTE</label>
+            </div>
+        </div>
+        <div class="container-chart" *ngIf="dataDashboard != undefined && dataDashboard != []">
+            <h3>Tickets abiertos</h3>
+            <canvas baseChart
+                [type]="'line'"
+                [datasets]="chartData"
+                [labels]="chartLabels"
+                [options]="chartOptions">
+            </canvas>
+        </div>    
+    </div>
+
+</section>
+<!-- FIN SECCION DASHBOARD ADMINISTRADOR -->
+
 <div *ngIf="role=='usuario'">
 
     <header class="header">
