@@ -1,0 +1,17 @@
+<section class="modal" id="modal" *ngIf="flagShowModal == true">
+
+    <div class="container-modal">
+
+        <div class="container-title">
+            <h2>{{modalTitle}}</h2>
+        </div>
+        <div class="container-content">
+            <p>{{modalContent}}</p>
+        </div>
+        <div class="container-buttons">
+            <button type="button" class="btn btn-primary" (click)="closeModal()">Aceptar</button>            
+        </div>
+
+    </div>
+
+</section>

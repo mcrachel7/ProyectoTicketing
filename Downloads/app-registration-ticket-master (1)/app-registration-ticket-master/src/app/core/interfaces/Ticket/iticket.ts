@@ -5,6 +5,7 @@ export interface ITicket {
     description: string;
     status: string;
     type: string;
+    idUser?:string;
     department: string;
     fullName?: string   // opcional
     createdAt: string;    

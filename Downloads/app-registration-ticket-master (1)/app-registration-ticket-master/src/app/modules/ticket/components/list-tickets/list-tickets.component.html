@@ -33,44 +33,6 @@
     </ul>
   </header>
 
-  <!-- <div class="container mt-5">
-    <div class="row">
-      <div class="col-lg-8 offset-lg-2">
-        <div class="card" style="margin-top: 2cm;">
-          <div *ngIf="flagLoadTasks==true" class="card-body text-center">
-            <span class="titulo" style="font-size: large; color: #2ebd94;">LISTADO DE TICKETS</span>
-            <table *ngIf="listTicket.length > 0" class="table table-striped mt-3">
-              <thead>
-                <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Department</th>
-                  <th scope="col">Title</th>
-                  <th scope="col">Description</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Type</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let ticket of listTicket">
-                  <td>{{ ticket.FullName }}</td>
-                  <td>{{ ticket.department }}</td>
-                  <td>{{ ticket.title }}</td>
-                  <td>{{ ticket.description }}</td>
-                  <td>{{ ticket.status }}</td>
-                  <td>{{ ticket.type }}</td>
-                  <td>
-                    <i [routerLink]="['/editTicket', ticket._id]" class="fas fa-edit text-primary"></i>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
   <div class="container-tickets" *ngIf="listTicket != undefined">
 
     <div class="row">

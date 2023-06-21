@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminTicketsComponent } from './modules/ticket/components/admin-tickets/admin-tickets.component';
 import { TicketTemplateComponent } from './modules/shared/components/ticket-template/ticket-template.component';
 
+import { NgChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { TicketTemplateComponent } from './modules/shared/components/ticket-temp
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

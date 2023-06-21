@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ITicket } from 'src/app/core/interfaces/Ticket/iticket';
 
+import { TicketTemplateService } from '../../services/ticket-template/ticket-template.service'
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-ticket-template',
   templateUrl: './ticket-template.component.html',
@@ -10,22 +13,72 @@ export class TicketTemplateComponent implements OnInit{
   
   @Input() ticket!:ITicket;
 
-  constructor (){ }
+  private token!:string;
+
+  public flagSelectStatus:boolean = false;
+  public newStatusTicket!:string;
+  public selectStatusOptions!:string[];
+  
+  constructor (
+    private ticketTemplateService: TicketTemplateService,
+  ){ }
 
   ngOnInit(): void {
-    
+    this.initDataTicket();
+  }
+
+  fillSelectStatus(){
+    this.selectStatusOptions = [
+      'Disponible','Activo', 'Abierto',
+      'En desarrollo', 'En proceso', 'En gestion',
+      'Desaprobado', 'Denegado', 'Cerrado',
+      'Deshabilitado', 'Inactivo'
+    ];
+  }
+
+  async initDataTicket(){    
+    this.token = await localStorage.getItem("ACCESS_TOKEN") || "";
+    await this.fillSelectStatus();
+    this.newStatusTicket = await this.ticket.status;
   }
 
   getColorClass(): string{
-    if (this.ticket.status == "disponible" || this.ticket.status == "activo") return "text-success";
-    if (this.ticket.status == "en desarrollo" || this.ticket.status == "en proceso" || this.ticket.status == "en gestion") return "text-in-management";
-    if (this.ticket.status == "desaprobado" || this.ticket.status == "denegado") return "text-failure";
-    if (this.ticket.status == "deshabilitado" || this.ticket.status == "inactivo") return "text-inactive";  
+    if (this.ticket.status == "Disponible" || this.ticket.status == "Activo" || this.ticket.status == "Abierto") return "text-success";
+    if (this.ticket.status == "En desarrollo" || this.ticket.status == "En proceso" || this.ticket.status == "En gestion") return "text-in-management";
+    if (this.ticket.status == "Desaprobado" || this.ticket.status == "Denegado") return "text-failure";
+    if (this.ticket.status == "Deshabilitado" || this.ticket.status == "Inactivo" || this.ticket.status == "Cerrado") return "text-inactive";  
     return "text-in-management";
   }
 
-  editStatusTicket(status:string){
-    this.ticket.status = status;
+  enableStatusTicket(){
+    this.flagSelectStatus = true;    
+  }
+
+  async changeStatusTicket(){
+
+    this.ticket.status = await this.newStatusTicket;
+    console.log(this.ticket._id);
+
+    let responseEditStatusTicket = await this.ticketTemplateService.editStatusTicket(this.ticket._id, this.ticket.status, this.token).subscribe(res => {
+      Swal.fire({
+        title: 'Resultado de la peticion.',
+        text: 'Status del ticket cambiado exitosamente',
+        icon: 'success'
+      });
+      this.ticket.status = this.newStatusTicket;
+    }, err => {
+      Swal.fire({
+        title: 'Algo ha ocurrido.',
+        text: 'Se presento un problema en la comunicacion y/o peticion realizada al servidor al actualizar el ticket.',
+        icon: 'warning'
+      });
+    });
+    this.newStatusTicket = this.ticket.status;
+    this.flagSelectStatus = false;
+  }
+
+  async deleteTicket(){
+
   }
 
 }

@@ -6,6 +6,8 @@ import { MainComponent } from './components/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { NgChartsModule } from 'ng2-charts';
+
 import { MainContentService } from './services/main-content/main-content.service';
 
 @NgModule({
@@ -17,7 +19,8 @@ import { MainContentService } from './services/main-content/main-content.service
     HomeRoutingModule,    
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgChartsModule
   ],
   providers: [
     MainContentService

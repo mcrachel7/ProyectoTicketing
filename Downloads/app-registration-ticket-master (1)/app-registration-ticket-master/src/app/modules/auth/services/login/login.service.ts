@@ -44,14 +44,14 @@ export class LoginService {
   } 
 
   public getToken():string{
-    if(!this.token){
+    if(this.token == "" || this.token == undefined){
       this.token = localStorage.getItem("ACCESS_TOKEN") || "";    
     }
     return this.token;
   }
 
   public getIdUser():string{
-    if(!this.idUser){
+    if(this.idUser == "" || this.idUser == undefined){
       this.idUser = localStorage.getItem("ID_USER") || "";    
     }
     return this.idUser;
